@@ -1,0 +1,70 @@
+type Query {
+    getTodos : [Todo]
+    getTodo(id : ID!) : Todo
+    getTodosByLevel(level : Level!) : [Todo]
+    getTodosByCategory(category : Category!) : [Todo]
+    getTodosByDeadline(deadLine : String!) : [Todo]
+    getUsers : [User]
+    getUser(userId : ID!) : User
+    getUsersWithTodo : [UserWithTodo]
+}
+
+type Mutation {
+    createUser(dto : UserDto) : User
+    createTodo(dto : TodoDto) : Todo
+    completeTodo(todoId : ID!) : Todo
+    deleteTodo(todoId : ID!) : String
+    updateTodo(todoId : ID!, dto : TodoDto) : Todo
+}
+
+input TodoDto {
+    title : String
+    description : String
+    category : Category
+    level : Level
+    deadLine : String
+    completed : Boolean
+    user_id : Int
+}
+
+input UserDto {
+    fullName : String
+    email : String
+    password : String
+}
+
+type Todo {
+    id : ID!
+    title : String
+    description : String
+    category : Category
+    level : Level
+    deadLine : String
+    completed : Boolean
+}
+
+type User {
+    id : ID!
+    fullName : String!
+    email : String!
+    password : String!
+}
+
+type UserWithTodo {
+    fullName : String!
+    email : String!
+    password : String!
+    todos : [Todo]
+}
+
+enum Category {
+    ENTERTAINMENT,
+    WORK,
+    STUDY
+}
+
+enum Level {
+    LOW,
+    MEDIUM,
+    HIGH
+}

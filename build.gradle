@@ -38,6 +38,7 @@ dependencies {
     implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
     implementation "org.mapstruct:mapstruct:${mapstruct_version}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct_version}"
+    implementation 'org.springframework.boot:spring-boot-starter-graphql'
 }
 
 test {

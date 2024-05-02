@@ -7,13 +7,16 @@ spring:
         show_sql: true
         format_sql: true
   profiles:
-    active: test
+    active: dev
+  graphql:
+    graphiql:
+      enabled: true
 ---
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: 'jdbc:postgresql://localhost:5432/spring_boot_test?currentSchema=testing'
+    url: 'jdbc:postgresql://localhost:5432/spring_boot_test?currentSchema=graphql'
     username: postgres
     password: 1234
   config:
